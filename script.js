@@ -152,4 +152,44 @@ const findArray = myArray.find(array => array.name.startsWith('D'));
 
 console.log(findArray);
 
+/* Array Method - Reduce - Will execute whatever we specify with elements and returns it */
 
+const reduceResult = myArray.reduce((accumulator, ages) => {
+    return ages.age += accumulator;
+}, 0)
+
+console.log(reduceResult);
+
+/* Power of Reduce - Return each element multiplied by 2 and then an array that holds double values */
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+const newReduceArray = numbers.reduce((accumulator, ele) => {
+    accumulator.push(ele * 2);
+    return accumulator;
+}, [])
+
+console.log(newReduceArray);
+console.log(numbers);
+
+/* get all the numbers over 3 and put it in a sub-set array */
+
+const overThreeArray = numbers.reduce((accumulator, ele) => {
+    if(ele > 3){
+        accumulator.push(ele);
+    }
+    return accumulator;
+}, [])
+
+console.log(overThreeArray);
+
+/* Using reduce method to check if a certain criteria matches, if so, return an array with it */
+
+const reduceArray = myArray.reduce((accumulator, ele) => {
+    if(ele.age > 40) {
+        accumulator.push(ele);
+    }
+    return accumulator;
+}, []);
+
+console.log(reduceArray);
