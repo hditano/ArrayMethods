@@ -124,14 +124,19 @@
 
 /* Array methods - Some - Checks if any elements meets the criteria */
 
-const myArray = [
-    {name: 'Hernan', age: 39},
-    {name: 'Sebastian', age: 41},
+const myArray = [{
+        name: 'Hernan',
+        age: 39
+    },
+    {
+        name: 'Sebastian',
+        age: 41
+    },
 ];
 
 console.log(myArray.some(array => array.age > 50));
 
-/* Array Method - Every - Checks if Every element checks the Criteria*/ 
+/* Array Method - Every - Checks if Every element checks the Criteria*/
 
 console.log(myArray.every(array => array.age < 42));
 
@@ -175,7 +180,7 @@ console.log(numbers);
 /* get all the numbers over 3 and put it in a sub-set array */
 
 const overThreeArray = numbers.reduce((accumulator, ele) => {
-    if(ele > 3){
+    if (ele > 3) {
         accumulator.push(ele);
     }
     return accumulator;
@@ -186,10 +191,89 @@ console.log(overThreeArray);
 /* Using reduce method to check if a certain criteria matches, if so, return an array with it */
 
 const reduceArray = myArray.reduce((accumulator, ele) => {
-    if(ele.age > 40) {
+    if (ele.age > 40) {
         accumulator.push(ele);
     }
     return accumulator;
 }, []);
 
 console.log(reduceArray);
+
+/* Destructuring Arrays */
+
+const myArrayDestruct = ['Hernan', 'Zoe', 'Gimena', 'Sebastian'];
+
+const [myself, daughter, wife, brother] = myArrayDestruct;
+
+console.log(wife);
+
+
+/* Object values using .reduce() to sum up all the values inside the Object */
+
+const monthlyExpenses = {
+    food: 400,
+    rent: 1700,
+    insurance: 550,
+    internet: 49,
+    phone: 95
+};
+
+const values = Object.values(monthlyExpenses);
+
+console.log(values);
+
+const reduceVales = Object.values(monthlyExpenses).reduce((accumulator, ele) => {
+    return ele + accumulator;
+})
+
+console.log(reduceVales);
+
+
+/* Object entries - Pretty much converts an Object to an Array using Object.entries along with reduce */
+
+const users = {
+    '2345234': {
+        name: "John",
+        age: 29
+    },
+    '8798129': {
+        name: "Jane",
+        age: 42
+    },
+    '1092384': {
+        name: "Fred",
+        age: 17
+    }
+};
+
+
+
+const myEntries = Object.entries(users).reduce((accumulator, [id, user]) => {
+    if (user.age > 10) {
+        accumulator.push({ ...user, id})
+    }
+    return accumulator;
+}, [])
+
+console.log(myEntries);
+
+/* Set - may only occur once */
+
+const customerDishes = [
+    "Chicken Wings",
+    "Fish Sandwich",
+    "Beef Stroganoff",
+    "Grilled Cheese",
+    "Blue Cheese Salad",
+    "Chicken Wings",
+    "Reuben Sandwich",
+    "Grilled Cheese",
+    "Fish Sandwich",
+    "Chicken Pot Pie",
+    "Fish Sandwich",
+    "Beef Stroganoff"
+  ];
+
+const newArraySet = [...new Set([...customerDishes])];
+
+console.log(newArraySet);
