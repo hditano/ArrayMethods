@@ -315,3 +315,67 @@ const numbers1 = [1, 2, 3, 4, 5];
 // });
 
 // console.log(newNumbers);
+
+
+class myLayout  {
+    constructor(id, height, width) {
+        this.id = id;
+        this.height = height;
+        this.width = width;
+    }
+
+    getStatus() {
+        console.log(`ID: ${this.id} - Height: ${this.height} - Width: ${this.width}`);
+    }
+}
+
+const layout1 = new myLayout(27, 240, 240);
+
+layout1.getStatus();
+
+const ArrayLayout = [27, 240, 240];
+
+for(let i = 0; i < ArrayLayout.length; i++) {
+    const layout2 = new myLayout(ArrayLayout[i], ArrayLayout[i], ArrayLayout[i])
+}
+/* Create randomClass using array */ 
+
+class Character {
+    constructor(name, level) {
+        this.name = name
+        this.level = level
+        this.id = id++
+    }
+    
+    view(details = '') {
+        return "<div class='character'>" +
+            this.name + " Lv. " + this.level + 
+            details +
+        "</div>"
+    }
+}
+
+class randomC extends Character {
+    constructor(name, level, mana) {
+        super(name, level)
+        this.mana = mana;
+    }
+    
+    mana() {
+        this.mana++;
+    }
+    
+    view() {
+        return super.view(`${this.mana}`);
+    }
+}
+
+const myClasses = ['Mage', 'Druid', 'Priest'];
+
+const randomClass = myClasses[Math.floor(Math.random() * myClasses.length)];
+
+function myNewClass() {
+    return new randomC(randomClass, 20, 200);
+}
+
+console.log(myNewClass());
