@@ -250,7 +250,10 @@ const users = {
 
 const myEntries = Object.entries(users).reduce((accumulator, [id, user]) => {
     if (user.age > 10) {
-        accumulator.push({ ...user, id})
+        accumulator.push({
+            ...user,
+            id
+        })
     }
     return accumulator;
 }, [])
@@ -272,7 +275,7 @@ const customerDishes = [
     "Chicken Pot Pie",
     "Fish Sandwich",
     "Beef Stroganoff"
-  ];
+];
 
 const newArraySet = [...new Set([...customerDishes])];
 
@@ -317,7 +320,7 @@ const numbers1 = [1, 2, 3, 4, 5];
 // console.log(newNumbers);
 
 
-class myLayout  {
+class myLayout {
     constructor(id, height, width) {
         this.id = id;
         this.height = height;
@@ -335,47 +338,40 @@ layout1.getStatus();
 
 const ArrayLayout = [27, 240, 240];
 
-for(let i = 0; i < ArrayLayout.length; i++) {
+for (let i = 0; i < ArrayLayout.length; i++) {
     const layout2 = new myLayout(ArrayLayout[i], ArrayLayout[i], ArrayLayout[i])
 }
-/* Create randomClass using array */ 
+/* Create randomClass using array */
 
-class Character {
-    constructor(name, level) {
-        this.name = name
-        this.level = level
-        this.id = id++
-    }
-    
-    view(details = '') {
-        return "<div class='character'>" +
-            this.name + " Lv. " + this.level + 
-            details +
-        "</div>"
-    }
-}
+import { Spider, Scorpion, Dragon } from "./enemies.js";
+import { startBattle } from "./combat.js";
 
-class randomC extends Character {
-    constructor(name, level, mana) {
-        super(name, level)
-        this.mana = mana;
-    }
-    
-    mana() {
-        this.mana++;
-    }
-    
-    view() {
-        return super.view(`${this.mana}`);
-    }
-}
 
-const myClasses = ['Mage', 'Druid', 'Priest'];
+const newChar = new Spider(20);
+const newChar1 = new Dragon(15);
+startBattle(newChar, newChar1);
 
-const randomClass = myClasses[Math.floor(Math.random() * myClasses.length)];
+// class randomC extends Character {
+//     constructor(name, level, mana) {
+//         super(name, level)
+//         this.mana = mana;
+//     }
 
-function myNewClass() {
-    return new randomC(randomClass, 20, 200);
-}
+//     mana() {
+//         this.mana++;
+//     }
 
-console.log(myNewClass());
+//     view() {
+//         return super.view(`${this.mana}`);
+//     }
+// }
+
+// const myClasses = ['Mage', 'Druid', 'Priest'];
+
+// const randomClass = myClasses[Math.floor(Math.random() * myClasses.length)];
+
+// function myNewClass() {
+//     return new randomC(randomClass, 20, 200);
+// }
+
+// console.log(myNewClass());
