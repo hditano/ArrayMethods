@@ -344,34 +344,16 @@ for (let i = 0; i < ArrayLayout.length; i++) {
 /* Create randomClass using array */
 
 import { Spider, Scorpion, Dragon } from "./enemies.js";
-import { startBattle } from "./combat.js";
+import { startDungeon, startBattle } from "./combat.js";
 
 
 const newChar = new Spider(20);
 const newChar1 = new Dragon(15);
-startBattle(newChar, newChar1);
+newChar.pickupHealth('Cerveza');
+newChar1.pickupHealth('Pan');
+newChar1.getInventoryView();
 
-// class randomC extends Character {
-//     constructor(name, level, mana) {
-//         super(name, level)
-//         this.mana = mana;
-//     }
+let myOpponents = [new Dragon(1), new Spider(2)];
 
-//     mana() {
-//         this.mana++;
-//     }
+startDungeon(newChar, myOpponents);
 
-//     view() {
-//         return super.view(`${this.mana}`);
-//     }
-// }
-
-// const myClasses = ['Mage', 'Druid', 'Priest'];
-
-// const randomClass = myClasses[Math.floor(Math.random() * myClasses.length)];
-
-// function myNewClass() {
-//     return new randomC(randomClass, 20, 200);
-// }
-
-// console.log(myNewClass());
